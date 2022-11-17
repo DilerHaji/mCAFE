@@ -9,7 +9,7 @@ echo ${array[@]}
 
 for box in "${array[@]}"
 do
-  ./get_random_grabs.sh "${box}" 3
+  ./get_random_grabs.sh "${box}" $2
 done
 
 for box in "${array[@]}"
