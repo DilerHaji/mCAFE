@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd $1
-wget https://raw.githubusercontent.com/DilerHaji/mCAFE/master/scripts/convert_to_video.py
+wget -O convert_to_video.py https://raw.githubusercontent.com/DilerHaji/mCAFE/master/scripts/convert_to_video.py
 
 array=($(ls -d */ | tr -d /))
 echo ${array[@]}
