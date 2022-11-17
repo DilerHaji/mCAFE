@@ -9,8 +9,9 @@ glob_pattern = argv[1]
 out_name = argv[2]
 
 fourcc = VideoWriter_fourcc('M', 'J', 'P', 'G')
-sorted_images = sorted(glob(glob_pattern), key=getmtime)
-frame = imread(sorted_images[0])
+images = glob(glob_pattern)
+sorted_images = sorted(images, key=getmtime)
+frame = imread(images[1])
 height, width, layers = frame.shape
 
 out = VideoWriter(out_name, fourcc, 1, (width, height), isColor=True)

@@ -9,6 +9,10 @@ echo ${array[@]}
 
 for box in "${array[@]}"
 do
-  ./get_random_grabs.sh "${box}" 50
+  ./get_random_grabs.sh "${box}" 3
+done
+
+for box in "${array[@]}"
+do
   python convert_to_video.py "${box}/random_grabs/*jpg" "${box}_test.avi"
 done
