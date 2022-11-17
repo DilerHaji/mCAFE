@@ -1,16 +1,16 @@
 #!/bin/bash
 
-if [ -d "random_grabs/" ];
+if [ -d "${1}/random_grabs" ];
 then
-  echo "random_grabs/ exist already! Delete then rerun this script."
+  echo "${1}/random_grabs/ exist already! Delete then rerun this script."
 else
-  mkdir random_grabs
+  mkdir "${1}"/random_grabs
 
-  ls grabs/*jpg | sort -R | head -$1 > random_image_names.txt
+  ls "${1}"/grabs/*jpg | sort -R | head -$2 > "$1"/random_image_names.txt
 
   while read -r a;
   do
-    cp "${a}" random_grabs &
-  done < random_image_names.txt
+    cp "${a}" "${1}"/random_grabs &
+  done < "${1}"/random_image_names.txt
 
 fi

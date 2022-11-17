@@ -1,14 +1,14 @@
 #!/bin/bash
 
 cd $1
-wget https://raw.githubusercontent.com/DilerHaji/mCAFE/master/scripts/convert_to_video.py
+wget -O convert_to_video.py https://raw.githubusercontent.com/DilerHaji/mCAFE/master/scripts/convert_to_video.py
+wget -O get_random_grabs.sh https://raw.githubusercontent.com/DilerHaji/mCAFE/master/scripts/get_random_grabs.sh
 
 array=($(ls -d */ | tr -d /))
 echo ${array[@]}
 
 for box in "${array[@]}"
 do
-  print "$box"/grabs
-  print "$box".avi
-  python convert_to_video.py "${box}/grabs/*jpg" "${box}.avi" &
+  ./get_random_grabs.sh "${box}" 50
+  python convert_to_video.py "${box}/random_grabs/*jpg" "${box}_test.avi"
 done
